@@ -1,0 +1,78 @@
+USE_LR_PARSER
+
+prog
+
+(* ======================================================================================================= *)
+<prog> ::= <StatementList> .
+
+<epsilon> ::= .
+
+<StatementList> ::= <Statement> <StatementList>
+                | <epsilon> .
+
+<Statement> ::= <Assign>";" | <Declarative>";" | <DecAssign>";" | <Block> 
+            | <Iterative> | <Skip>";" | <PrintStatement>";" | <Conditional>
+            | <DecoratedID>";" .
+
+<DecoratedID> ::= id"++" | "++"id | id"--" | "--"id .
+
+<PrintStatement> ::= "print""("<Expression>")" .
+
+<Skip> ::= <epsilon> .
+
+<Declarative> ::= "int" id | "bool" id .
+
+<Assign> ::= id "=" <Expression> .
+
+<DecAssign> ::= "int" id "=" <Expression>
+             | "bool" id "=" <Expression> .
+
+<Iterative> ::= <ForLoop> | <WhileLoop> .
+
+<ForLoop> ::= "for""("<DecAssign>";" <Expression>";" <DecoratedID>")" <Block> .
+
+<WhileLoop> ::= "while""("<Expression>")" <Block> .
+
+<Conditional> ::= "if" "("<Expression>")" "then" <Block> 
+                | "if" "("<Expression>")" "then" <Block> "else" <Block> .
+
+<Block> ::= "{" <StatementList> "}" .
+
+<Expression> ::= <OROperator> .
+
+<OROperator> ::= <OROperator> "OR" <ANDOperator> 
+                | <ANDOperator> .
+
+<ANDOperator> ::= <ANDOperator> "AND" <Equality> 
+                | <Equality> .
+
+<Equality> ::= <Equality> "==" <Relational>
+            | <Equality> "!=" <Relational>
+            | <Relational> .
+
+<Relational> ::= <AddSubtract> ">" <AddSubtract>
+                | <AddSubtract> "<" <AddSubtract>
+                | <AddSubtract> .
+
+<AddSubtract> ::= <AddSubtract> "+" <MultDivMod>
+                | <AddSubtract> "-" <MultDivMod>
+                | <MultDivMod> .
+
+<MultDivMod> ::= <MultDivMod> "*" <Unary>
+                | <MultDivMod> "/" <Unary>
+                | <MultDivMod> "%" <Unary>
+                | <Unary> .
+
+<Unary> ::= "!"<Unary> 
+        | "~"<Unary> 
+        | <Exponential> .
+
+<Exponential> ::= <Factor> "^" <Exponential>
+                | <Factor> .
+
+<Factor> ::= integer
+            | boolean
+            | id
+            | "|"<Expression>"|"
+            | "("<Expression>")"
+            | <DecoratedID> .

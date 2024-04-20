@@ -1,0 +1,13 @@
+<XML_FILE label="C:\Users\DynamoDoughnut\Desktop\prog_language\Domain-Template\Transformation\TL_Modules\interpret.tlp"><abstract node="PROG" value="" line ="8:14" column="1:46" label="interpret"><abstract node="NON_RECURSIVE" value="" line ="8:14" column="1:46" label="interpret"><abstract node="IDENTIFIER" value="main" line ="8:8" column="10:10" label="interpret"></abstract>
+<abstract node="COND_RULE" value="" line ="10:14" column="5:46" label="interpret"><abstract node="TERM" value="" line ="10:10" column="5:5" label="interpret"><itree imatch_var="prog" schema_id="_in" line="10:10" column="5:5""interpret"></itree>
+</abstract>
+<abstract node="TERM" value="" line ="10:10" column="18:18" label="interpret"><itree imatch_var="prog" schema_id="_in" line="10:10" column="18:18""interpret"></itree>
+</abstract>
+<abstract node="LIBRARY_CALL" value="" line ="13:13" column="13:46" label="interpret"><abstract node="IDENTIFIER" value="interpreter_execute" line ="13:13" column="17:17" label="interpret"></abstract>
+<abstract node="TERM" value="" line ="13:13" column="37:37" label="interpret"><itree imatch_var="prog" schema_id="_in" line="13:13" column="37:37""interpret"></itree>
+</abstract>
+</abstract>
+</abstract>
+</abstract>
+</abstract>
+</XML_FILE>
